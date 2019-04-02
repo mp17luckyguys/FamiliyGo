@@ -1,0 +1,75 @@
+﻿@model FamilyGo.Models.Place
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Place</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Facility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Facility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Suburb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Suburb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activity.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activity.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlaceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
