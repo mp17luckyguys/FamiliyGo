@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/02/2019 18:10:45
--- Generated from EDMX file: E:\MIT\5120\Project\FamiliyGo\FamilyGo\FamilyGo\Models\FamilyGoModel.edmx
+-- Date Created: 04/03/2019 17:22:58
+-- Generated from EDMX file: C:\Users\jcui0003\Source\Repos\mp17luckyguys\FamiliyGo\FamilyGo\FamilyGo\Models\FamilyGoModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,11 +17,23 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_ActivityPlace]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Places] DROP CONSTRAINT [FK_ActivityPlace];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Activities]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Activities];
+GO
+IF OBJECT_ID(N'[dbo].[Places]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Places];
+GO
+IF OBJECT_ID(N'[dbo].[Games]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Games];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
