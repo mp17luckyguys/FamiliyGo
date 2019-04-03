@@ -13,46 +13,39 @@
 
 <table class="table">
     <!--
-        <thead>
+    <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
+            </tr>
+        <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th></th>
+
         </tr>
     </thead>
     -->
-
-    <tbody>
-
         @foreach (var item in Model)
         {
             <tr>
-                <td >
+                <td>
                     <table>
-                        
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Description)
-                                </td>
-                            </tr>
-                   
+                        <tr>
+                            <td>
+                                <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                        </tr>
                     </table>
-                    
                 </td>
-               
             </tr>
         }
-    </tbody>
 
 </table>
 @section Scripts{
