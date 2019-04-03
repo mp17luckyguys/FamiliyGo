@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/03/2019 17:22:58
--- Generated from EDMX file: C:\Users\jcui0003\Source\Repos\mp17luckyguys\FamiliyGo\FamilyGo\FamilyGo\Models\FamilyGoModel.edmx
+-- Date Created: 04/03/2019 21:01:21
+-- Generated from EDMX file: E:\MIT\5120\Project\FamiliyGo\FamilyGo\FamilyGo\Models\FamilyGoModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -43,7 +43,7 @@ GO
 CREATE TABLE [dbo].[Activities] (
     [ActivityId] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [Description] nvarchar(max)  NOT NULL
+    [Description] nvarchar(max)  NULL
 );
 GO
 
@@ -51,11 +51,11 @@ GO
 CREATE TABLE [dbo].[Places] (
     [PlaceId] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [Address] nvarchar(max)  NOT NULL,
-    [Facility] nvarchar(max)  NOT NULL,
-    [Lat] nvarchar(max)  NOT NULL,
-    [Lon] nvarchar(max)  NOT NULL,
-    [Suburb] nvarchar(max)  NOT NULL,
+    [Address] nvarchar(max)  NULL,
+    [Facility] nvarchar(max)  NULL,
+    [Lat] nvarchar(max)  NULL,
+    [Lon] nvarchar(max)  NULL,
+    [Suburb] nvarchar(max)  NULL,
     [ActivityActivityId] int  NOT NULL
 );
 GO

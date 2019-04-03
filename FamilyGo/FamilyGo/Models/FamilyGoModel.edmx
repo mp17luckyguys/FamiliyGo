@@ -20,7 +20,7 @@
     </Key>
     <Property Name="ActivityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="Places">
     <Key>
@@ -28,11 +28,11 @@
     </Key>
     <Property Name="PlaceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Facility" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Lat" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Lon" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Suburb" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Facility" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Lat" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Lon" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Suburb" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ActivityActivityId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Games">
@@ -74,7 +74,7 @@
           </Key>
           <Property Name="ActivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
           <NavigationProperty Name="Places" Relationship="FamilyGoModel.ActivityPlace" FromRole="Activity" ToRole="Place" />
         </EntityType>
         <EntityType Name="Place">
@@ -83,11 +83,11 @@
           </Key>
           <Property Name="PlaceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Address" Type="String" Nullable="false" />
-          <Property Name="Facility" Type="String" Nullable="false" />
-          <Property Name="Lat" Type="String" Nullable="false" />
-          <Property Name="Lon" Type="String" Nullable="false" />
-          <Property Name="Suburb" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="true" />
+          <Property Name="Facility" Type="String" Nullable="true" />
+          <Property Name="Lat" Type="String" Nullable="true" />
+          <Property Name="Lon" Type="String" Nullable="true" />
+          <Property Name="Suburb" Type="String" Nullable="true" />
           <NavigationProperty Name="Activity" Relationship="FamilyGoModel.ActivityPlace" FromRole="Place" ToRole="Activity" />
           <Property Name="ActivityActivityId" Type="Int32" Nullable="false" />
         </EntityType>
