@@ -1,8 +1,10 @@
-﻿using System;
+﻿using FamilyGo.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static FamilyGo.Utils.ExcelToDataBase;
 
 namespace FamilyGo.Controllers
 {
@@ -16,7 +18,8 @@ namespace FamilyGo.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            ExcelToDB ex = new ExcelToDB();
+            ex.Page_Load();
             return View();
         }
 

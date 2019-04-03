@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\jcui0003\Source\Repos\mp17luckyguys\FamiliyGo\FamilyGo\FamilyGo\Models\FamilyGoModel.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\MIT\5120\Project\FamiliyGo\FamilyGo\FamilyGo\Models\FamilyGoModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
