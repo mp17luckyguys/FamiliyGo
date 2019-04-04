@@ -10,6 +10,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+
+
+
+
 <table class="table">
     <tr>
         <th>
@@ -60,9 +65,7 @@
             @Html.DisplayFor(modelItem => item.Activity.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PlaceId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PlaceId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PlaceId })
+
         </td>
     </tr>
 }

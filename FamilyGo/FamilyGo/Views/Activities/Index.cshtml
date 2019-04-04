@@ -57,7 +57,7 @@
                         <div class="col-md-4 gallery-grid">
                             <div class="grid">
                                 <figure class="effect-roxy">
-                                    <a class="image-link" href="~/Activities/Information">
+                                    <a class="image-link" href="@Url.Action("Index", "Places",new {i= item.ActivityId })">
                                         <img src="~/Image/Kaws-Sesame-Street-Uniqlo-Cookie-Monster-Plush-Toy-Blue.jpg" alt="" />
                                         <figcaption>
                                             <h2>@Html.DisplayFor(modelItem => item.Name)</h2>

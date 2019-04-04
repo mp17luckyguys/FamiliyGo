@@ -15,10 +15,33 @@ namespace FamilyGo.Controllers
         private FamilyGoModelContainer db = new FamilyGoModelContainer();
 
         // GET: Places
-        public ActionResult Index()
+        /*       public ActionResult Index()
+               {
+                   var places = db.Places.Include(p => p.Activity);
+                               List<Place> placesList = places.ToList();
+                               List<Place> newPlacesList = new List<Place>();
+                               foreach (Place place in placesList)
+                               {
+                                   if (place.ActivityActivityId == i)
+                                       newPlacesList.Add(place);
+                               }
+
+                               return View(newPlacesList);
+                   return View(places.ToList());
+               }*/
+
+        public ActionResult Index(int? i)
         {
             var places = db.Places.Include(p => p.Activity);
-            return View(places.ToList());
+            List<Place> placesList = places.ToList();
+            List<Place> newPlacesList = new List<Place>();
+            foreach (Place place in placesList)
+            {
+                if (place.ActivityActivityId == i)
+                    newPlacesList.Add(place);
+            }
+
+            return View(newPlacesList);
         }
 
         // GET: Places/Details/5
