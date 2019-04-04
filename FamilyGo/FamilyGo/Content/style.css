@@ -2768,3 +2768,14 @@ button.btn1 {
     }
 }
 /*-- //responsive --*/
+
+
+#leftside {
+    float:left;
+    width:200px;
+}
+
+#medium {
+    width:auto;
+}
+

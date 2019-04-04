@@ -1,73 +1,112 @@
 ﻿@model IEnumerable<FamilyGo.Models.Place>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-    
+<div class="about-heading">
+    <h2>Place you can go</h2>
+</div>
 
 
+<div id="leftside">
+    <div class="about-heading">
+        <h5> Children Age Group</h5>
+        <input id="Radio1" type="radio" value="all" /> All <br />
+        <input id="Radio1" type="radio" value="three" />3-6 years old <br />
+        <input id="Radio1" type="radio" value="six" />6-12 years old <br />
+        <h5>Change Activities</h5>
+        <select id="Select1">
+            <option value="camping">Camping</option>
+            <option>Park</option>
+            <option>Game</option>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Facility)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Lat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Lon)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Suburb)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Activity.Name)
-        </th>
-        <th></th>
-    </tr>
+        </select>
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Facility)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Suburb)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activity.Name)
-        </td>
-        <td>
+</div>
 
-        </td>
-    </tr>
-}
+<div style="display:grid">
 
-</table>
+    <div id="map" style="height:425px"></div> <br />
+
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Facility)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Suburb)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Activity.Name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Facility)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Suburb)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Activity.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PlaceId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PlaceId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PlaceId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
+
+
+
+<script>
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: -34.397, lng: 150.644 },
+            zoom: 8
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRO_DDkj10_DB-q-DYRX8QIpF_kzZ2g3M&callback=initMap" async defer></script>
+
