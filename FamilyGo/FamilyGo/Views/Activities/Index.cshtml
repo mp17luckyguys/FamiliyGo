@@ -1,41 +1,66 @@
 ﻿@model IEnumerable<FamilyGo.Models.Activity>
 
 @{
+
     ViewBag.Title = "Activities";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Activities for 3-6 years old</h2>
+<!DOCTYPE html>
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+    <link href="~/Content/lightbox.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+</head>
+<body>
+    <section>
+        <div class="about-heading">
+            <h2>
+                Activities for Children
+            </h2>
+        </div>
+    </section>
+    <section>
+        <div class="about-heading">
+            <h5>
+                <input id="Checkbox1" type="checkbox" value="three" /> 3-6 years old 
+                    &nbsp;&nbsp;&nbsp;
+                <input id="Checkbox2" type="checkbox" value="six" /> 6-12 years old
+            </h5>
+            
+        </div>
+    </section>
+    <section>
+        <div class="about-heading">
+            <h4>Activities for 3-6 years old:</h4>
+        </div>
+        <div class="gallery">
+            <div class="container">
+                <div class="gallery-grids">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4 gallery-grid">
+                            <div class="grid">
+                                <figure class="effect-roxy">
+                                    <a class="image-link" href="~/Activities/Information">
+                                        <img src="~/Image/Kaws-Sesame-Street-Uniqlo-Cookie-Monster-Plush-Toy-Blue.jpg" alt="" />
+                                        <figcaption>
+                                            <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+                                        </figcaption>
+                                    </a>
+                                </figure>
+                            </div>
+                        </div>
+                     }
+                </div>        
+            </div>
+        </div>
+    </section>
+    <script src="~/Scripts/lightbox-plus-jquery.min.js"></script>
+    <script src="~/Scripts/SmoothScroll.min.js"></script>
+</body>
+</html>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ActivityId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ActivityId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ActivityId })
-        </td>
-    </tr>
-}
-
-</table>
