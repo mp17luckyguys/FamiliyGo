@@ -40,6 +40,18 @@
         <div class="gallery">
             <div class="container">
                 <div class="gallery-grids">
+                    <div class="col-md-4 gallery-grid">
+                        <div class="grid">
+                            <figure class="effect-roxy">
+                                <a class="image-link" href="@Url.Action("Index", "Games")">
+                                    <img src="~/Image/Kaws-Sesame-Street-Uniqlo-Cookie-Monster-Plush-Toy-Blue.jpg" alt="" />
+                                    <figcaption>
+                                        <h2>Games</h2>
+                                    </figcaption>
+                                </a>
+                            </figure>
+                        </div>
+                    </div>
                     @foreach (var item in Model)
                     {
                         <div class="col-md-4 gallery-grid">
@@ -54,7 +66,7 @@
                                 </figure>
                             </div>
                         </div>
-                     }
+                    }
                 </div>        
             </div>
         </div>
