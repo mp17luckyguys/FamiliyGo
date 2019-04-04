@@ -5,28 +5,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Games for Child</h2>
 
-<p>  </p>
-<p>  </p>
-<p>  </p>
+<div class="about-heading">
+    <h2>
+        Games for Children
+    </h2>
+</div>
 
-<table class="table">
-    <!--
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
+<div class="about-heading">
+    <table class="table">
+
+        <thead>
+            <tr style="display:none">
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
             </tr>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
+            <tr style="display:none">
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+            </tr>
+        </thead>
 
-        </tr>
-    </thead>
-    -->
         @foreach (var item in Model)
         {
             <tr>
@@ -47,7 +48,8 @@
             </tr>
         }
 
-</table>
+    </table>
+</div>
 @section Scripts{
     @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
     @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
