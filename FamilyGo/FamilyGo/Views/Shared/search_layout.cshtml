@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="leftside">
+<div id="leftside" style="margin-top:150px;">
     <div class="about-heading">
         <h5> Children Age Group</h5>
         <div>
@@ -13,13 +13,8 @@
             <input type="radio" name="age" value="2" /> 7-12 years old
         </div>
         <h5>Change Activities</h5>
-        <select id="Select1">
-            <option value="camping">Camping</option>
-            <option>Park</option>
-            <option>Game</option>
-
+        <select id="Select1" style="width:150px;">
         </select>
-
     </div>
 </div>
 <div class="container body-content">
@@ -53,7 +48,6 @@
         for (var i = childRet.childNodes.length - 1; i >= 0; i--) {
             childRet.removeChild(childRet.childNodes.item(i));
         }
-
         var tmpRet = {
             "DATA1": { "Park1": "Park1", "PPark1": "PPark1", "X": "X" },
             "DATA2": { "Park2": "Park2", "PPark2": "PPark2", "X": "X" },
@@ -76,8 +70,6 @@
                 ret.appendChild(newop);
             }
         }
-
         document.getElementById("Select1").appendChild(ret);
-
     }
 </script>
