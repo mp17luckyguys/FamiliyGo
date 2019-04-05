@@ -34,9 +34,7 @@
 </div>
 -->
 <div style="display:grid">
-
     <div id="map" style="height:425px"></div> <br />
-
     <div>
         <table class="table">
             <tr >
@@ -67,13 +65,13 @@
             @foreach (var item in Model)
             {
                 <tr class="coordinates">
-                    <td class="description">
+                    <td class="name">
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Address)
                     </td>
-                    <td>
+                    <td class="description">
                         @Html.DisplayFor(modelItem => item.Facility)
                     </td>
                     <td class="latitude">
@@ -95,20 +93,32 @@
                     </td>
                 </tr>
             }
-
         </table>
-
     </div>
 </div>
-
-
-
 <script>
     var map;
+    var locations = [];
+    var InforObj = [];
+    $(".coordinates").each(function () {
+        var name = $(".name", this).text().trim();
+        var longitude = $(".longitude", this).text().trim();
+        var latitude = $(".latitude", this).text().trim();
+        var description = $(".description", this).text().trim();
+        // Create a point data structure to hold the values.
+        var point = {
+            "name": name,
+            "latitude": parseFloat(latitude),
+            "longitude": parseFloat(longitude),
+            "description": description
+        };
+        // Push them all into an array.
+        locations.push(point);
+    });
     function initMap() {
         var myLatLng = { lat: -25.363, lng: 131.044 };
         map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: -25.363, lng: 131.044 },
+            center: { lat: -37.835163, lng: 144.979678 },
             zoom: 8
         });
         var marker = new google.maps.Marker({
@@ -116,31 +126,33 @@
             map: map,
             title: 'Hello World!'
         });
-
-
-
-
-        var locations = [];
-        $(".coordinates").each(function () {
-            var longitude = $(".longitude", this).text().trim();
-            var latitude = $(".latitude", this).text().trim();
-            var description = $(".description", this).text().trim();
-            // Create a point data structure to hold the values.
-            var point = {
-                "latitude": parseFloat(latitude),
-                "longitude": parseFloat(longitude),
-                "description": description
-            };
-            // Push them all into an array.
-            locations.push(point);
-        });
-
+        addMarkerInfo();
+    }
+    function addMarkerInfo() {
         for (var i = 0; i < locations.length; i++) {
-            var marker = new google.maps.Marker({
+            var contentString = '<div id="content">' + '<h4>' + locations[i].name + '</h4></br>' + locations[i].description +
+                '</div>';
+            const marker = new google.maps.Marker({
                 position: { lat: locations[i].latitude, lng: locations[i].longitude },
-                map: map,
-                title: locations[i].description
+                map: map
             });
+
+            const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+                maxWidth: 200
+            });
+            marker.addListener('click', function () {
+                closeOtherInfo();
+                infowindow.open(marker.get('map'), marker);
+                InforObj[0] = infowindow;
+            });
+        }
+    }
+    function closeOtherInfo() {
+        if (InforObj.length > 0) {
+            InforObj[0].set("marker", null);
+            InforObj[0].close();
+            InforObj.length = 0;
         }
     }
 </script>
