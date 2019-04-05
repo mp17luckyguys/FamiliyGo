@@ -13,8 +13,8 @@
             <input type="radio" name="age" value="2" /> 7-12 years old
         </div>
         <h5>Change Activities</h5>
-        <select id="Select1" style="width:150px;">
-        </select>
+        <select id="Select1" style="width:150px;"></select>
+        <input type="button" value="我是一个按钮" id="searchButton" onclick="search()">
     </div>
 </div>
 <div class="container body-content">
@@ -49,7 +49,7 @@
             childRet.removeChild(childRet.childNodes.item(i));
         }
         var tmpRet = {
-            "DATA1": { "Park1": "Park1", "PPark1": "PPark1", "X": "X" },
+            "DATA1": { "Games": "Games", "PPark1": "PPark1", "X": "X" },
             "DATA2": { "Park2": "Park2", "PPark2": "PPark2", "X": "X" },
             "DATA3": { "Park3": "Park3", "PPark3": "PPark", "X": "X" }
         };
@@ -71,5 +71,14 @@
             }
         }
         document.getElementById("Select1").appendChild(ret);
+    }
+
+    function search()
+    {
+        if (document.getElementById("Select1").value == 'Games') { location.href = '/Games/Index'; }
+        else if (document.getElementById("Select1").value == '') {
+            alert("select an activities")
+        }
+        else { location.href = '/Places/Index?i=1'; }
     }
 </script>

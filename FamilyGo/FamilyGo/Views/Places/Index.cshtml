@@ -39,8 +39,8 @@
 
     <div>
         <table class="table">
-            <tr>
-                <th>
+            <tr >
+                <th >
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
                 <th>
@@ -49,10 +49,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Facility)
                 </th>
-                <th>
+                <th >
                     @Html.DisplayNameFor(model => model.Lat)
                 </th>
-                <th>
+                <th >
                     @Html.DisplayNameFor(model => model.Lon)
                 </th>
                 <th>
@@ -66,8 +66,8 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
+                <tr class="coordinates">
+                    <td class="description">
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
@@ -76,10 +76,10 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Facility)
                     </td>
-                    <td>
+                    <td class="latitude">
                         @Html.DisplayFor(modelItem => item.Lat)
                     </td>
-                    <td>
+                    <td class="longitude">
                         @Html.DisplayFor(modelItem => item.Lon)
                     </td>
                     <td>
@@ -106,10 +106,42 @@
 <script>
     var map;
     function initMap() {
+        var myLatLng = { lat: -25.363, lng: 131.044 };
         map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: -34.397, lng: 150.644 },
+            center: { lat: -25.363, lng: 131.044 },
             zoom: 8
         });
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+        });
+
+
+
+
+        var locations = [];
+        $(".coordinates").each(function () {
+            var longitude = $(".longitude", this).text().trim();
+            var latitude = $(".latitude", this).text().trim();
+            var description = $(".description", this).text().trim();
+            // Create a point data structure to hold the values.
+            var point = {
+                "latitude": parseFloat(latitude),
+                "longitude": parseFloat(longitude),
+                "description": description
+            };
+            // Push them all into an array.
+            locations.push(point);
+        });
+
+        for (var i = 0; i < locations.length; i++) {
+            var marker = new google.maps.Marker({
+                position: { lat: locations[i].latitude, lng: locations[i].longitude },
+                map: map,
+                title: locations[i].description
+            });
+        }
     }
 </script>
 
