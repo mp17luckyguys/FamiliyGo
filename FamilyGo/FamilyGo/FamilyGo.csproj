@@ -370,6 +370,7 @@
     <Content Include="Content\simplelightbox.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -377,6 +378,7 @@
     <Content Include="Image\11.jpg" />
     <Content Include="Image\2.jpg" />
     <Content Include="Image\childneglect.jpg" />
+    <Content Include="Image\Green flower.png" />
     <Content Include="Image\img1.jpg" />
     <Content Include="Image\img10.jpg" />
     <Content Include="Image\img2.jpg" />
@@ -422,6 +424,11 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\classie.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />

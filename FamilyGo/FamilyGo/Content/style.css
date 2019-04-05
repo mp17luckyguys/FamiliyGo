@@ -57,7 +57,7 @@ body a:focus {
 }
 
 .navbar-header h1 {
-    font-size: 3.5em;
+    font-size: 2.5em;
     font-family:'Comic Sans MS';
 }
 
@@ -73,8 +73,10 @@ body a:focus {
             margin-top: 0.3em;
             letter-spacing: 3px;
             color: #fff;
-            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-family:Georgia,cursive;
         }
+
+        
 
 ul.nav.navbar-nav.navbar-left {
     margin-top: 1.3em;
@@ -149,20 +151,20 @@ div#bs-example-navbar-collapse-1 {
 }
 /*-- hover effect6 --*/
 .navbar-header h1 a i {
-    color: #f5f5dc;
+    color: #a0db8e;
     font-style: inherit;
 }
 
     .navbar-header h1 a i.logo-w3l2 {
-        color: #f5f5dc;
+        color: #b6fcd5;
     }
 
     .navbar-header h1 a i.logo-w3l3 {
-        color: #f5f5dc;
+        color: #b4eeb4;
     }
 
     .navbar-header h1 a i.logo-w3l4 {
-        color: #f5f5dc;
+        color: #a0db8e;
     }
 /*-- Yaku --*/
 .link--yaku {
@@ -332,7 +334,7 @@ a.agilebtn {
 
     .about h4 {
         font-size: 1.8em;
-        color: #f08080;
+        color: #ffd700;
         font-weight: 500;
         margin-bottom: 0.4em;
     }
@@ -346,7 +348,7 @@ a.agilebtn {
 
     .about-right ul li span.glyphicon {
         padding-right: 6px;
-        color: #f08080;
+        color: #ffd700;
     }
 
 p {
@@ -361,12 +363,12 @@ h3.agileits-title {
     font-family:'Comic Sans MS';
     text-align: center;
     line-height: 1.3em;
-    color: #20b2aa;
+    color: #66cdaa;
 }
 /*-- //about --*/
 /*-- news --*/
 .news {
-    background: #20b2aa;
+    background: #66cdaa;
 }
 
 .news-w3left h4 {
@@ -3966,10 +3968,17 @@ h3 {
 
     .about-heading h2 {
         font-family: 'Comic Sans MS';
-        color: black;
+        color: #66cdaa;
         font-size: 3em;
-        margin: 0;
+        margin-left:25%;
         text-align: center;
+        border:dashed;
+        border-radius:20px;
+        display:block;
+        width:560px;
+        height:65px;
+
+       
     }
     .about-heading h4 {
         font-family: 'Comic Sans MS';
