@@ -4,14 +4,15 @@
     /**/
 
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Layout = "~/Views/Shared/search_layout.cshtml";
 }
 
 <div class="about-heading">
     <h2>Place you can go</h2>
 </div>
 
-
+<!--
 <div id="leftside">
     <div class="about-heading">
         <h5> Children Age Group</h5>
@@ -31,7 +32,7 @@
     </div>
 
 </div>
-
+-->
 <div style="display:grid">
 
     <div id="map" style="height:425px"></div> <br />
@@ -111,20 +112,6 @@
         });
     }
 </script>
-<script>
-    $(document).ready(function () {
-        $('input[type=radio][name=age]').change(function () {
-            if (this.value == '0') {
-                alert("All!");
-            }
-            else if (this.value == '1') {
-                alert("1!");
-            }
-            else {
-                alert("2!");
-            };
-        });
-    });
-</script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA&callback=initMap" async defer></script>
 
