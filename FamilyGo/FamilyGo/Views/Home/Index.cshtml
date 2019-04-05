@@ -1,31 +1,101 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+<!-- banner -->
+<div class="banner">
+    <section class="slider">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <div class="banner-img1">
+                        <div class="banner-w3text">
+                            <h2>Temporibus autem Quisque <br> nunc ullamcorper eget volutpat </h2>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="banner-img2">
+                        <div class="banner-w3text">
+                            <h3>Volutpat quis enim Donec <br>massa ipsum imperdiet euornare</h3>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- FlexSlider -->
+    <script defer src="~/Scripts/jquery.flexslider.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function (slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+    <!-- //FlexSlider -->
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+<!-- about -->
+<div class="about w3-agileits">
+    <div class="container">
+        <div class="col-md-6 about-left">
+            <h3 class="agileits-title">Welcome To Family GO!</h3>
+        </div>
+        <div class="col-md-6 about-right agileits-w3layoutsleft">
+            <h4>Spend more time with your child </h4>
+            <p> Parents have busy schedual and do not have enough time to spend with their child.</p>
+
+            <ul>
+                <li><span class="glyphicon glyphicon-asterisk"></span> Find activities you can play with your child </li>
+                <li><span class="glyphicon glyphicon-asterisk"></span> Find nationality in your suburb</li>
+                <li><span class="glyphicon glyphicon-asterisk"></span> Coming popular events </li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
     </div>
 </div>
+<!-- //about -->
+<!-- news -->
+<div class="news w3-agileits">
+    <div class="container">
+        <h3 class="agileits-title1">News about children neglect</h3>
+        <div class="news-agileinfo">
+            <div class="col-md-6 news-w3left">
+                <h4><a href="https://www.abc.net.au/news/2018-09-16/australia-facing-an-epidemic-of-child-abuse-and-neglect/10233898" data-toggle="modal">Australia facing an 'epidemic of child abuse and neglect', according to experts </a></h4>
+                <h6>Sep. 16, 2018</h6>
+                <p>In what has been described as a world-first examination of child protection reports, Australia's systems are shown to be in meltdown amid unprecedented levels of child abuse and neglect.</p>
+                <a href="https://www.abc.net.au/news/2018-09-16/australia-facing-an-epidemic-of-child-abuse-and-neglect/10233898" class="agilebtn" data-toggle="modal" data-target="#myModal"><span>Read More</span></a>
+            </div>
+            <div class="col-md-6 news-w3right">
+                <img src="~/Image/childneglect.jpg" class="img-responsive" alt="" />
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="news-agileinfo btm-newsrow w3-agileits">
+            <div class="col-md-6 news-w3left news-w3left1">
+                <h4><a href="https://www.abc.net.au/news/2018-09-16/australia-facing-an-epidemic-of-child-abuse-and-neglect/10233898" data-toggle="modal">Australia facing an 'epidemic of child abuse and neglect', according to experts</a></h4>
+                <h6>Sep. 16, 2018</h6>
+                <p>In what has been described as a world-first examination of child protection reports, Australia's systems are shown to be in meltdown amid unprecedented levels of child abuse and neglect.</p>
+                <a href="https://www.abc.net.au/news/2018-09-16/australia-facing-an-epidemic-of-child-abuse-and-neglect/10233898" class="agilebtn" data-toggle="modal" data-target="#myModal"><span>Read More</span></a>
+            </div>
+            <div class="col-md-6 news-w3right news-w3right1">
+                <img src="~/Image/childneglect.jpg" class="img-responsive" alt="" />
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!-- //news -->
+
+<div>
+    <h1>charts</h1>
+</div>
+<link href="~/Content/flexslider.css" rel="stylesheet" />
