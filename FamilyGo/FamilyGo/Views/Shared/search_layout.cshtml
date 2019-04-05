@@ -1,7 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "search_layout";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "search_layout";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="leftside" style="margin-top:150px;">
@@ -14,7 +16,7 @@
         </div>
         <h5>Change Activities</h5>
         <select id="Select1" style="width:150px;"></select>
-        <input type="button" value="我是一个按钮" id="searchButton" onclick="search()">
+        <input type="button" value="Submit" id="searchButton" onclick="search()">
     </div>
 </div>
 <div class="container body-content">
@@ -55,12 +57,9 @@
         };
         var ret = document.createDocumentFragment();
         var tmpObj;
-        if (checked == '0')
-        { tmpObj = tmpRet["DATA1"] }
-        else if (checked == '1')
-        { tmpObj = tmpRet["DATA2"] }
-        else
-        { tmpObj = tmpRet["DATA3"] }
+        if (checked == '0') { tmpObj = tmpRet["DATA1"] }
+        else if (checked == '1') { tmpObj = tmpRet["DATA2"] }
+        else { tmpObj = tmpRet["DATA3"] }
         for (var key in tmpObj) {
             if (key != "X") {
                 var newop = document.createElement("option");
@@ -73,8 +72,7 @@
         document.getElementById("Select1").appendChild(ret);
     }
 
-    function search()
-    {
+    function search() {
         if (document.getElementById("Select1").value == 'Games') { location.href = '/Games/Index'; }
         else if (document.getElementById("Select1").value == '') {
             alert("select an activities")
@@ -82,3 +80,14 @@
         else { location.href = '/Places/Index?i=1'; }
     }
 </script>
+
+@section Scripts{
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
+
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable();
+        });
+    </script>
+}

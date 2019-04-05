@@ -390,17 +390,9 @@
     <Content Include="Image\img8.jpg" />
     <Content Include="Image\img9.jpg" />
     <Content Include="Image\Kaws-Sesame-Street-Uniqlo-Cookie-Monster-Plush-Toy-Blue.jpg" />
-    <Content Include="Image\logo.jpg" />
+    <Content Include="Image\pineapple.jpg" />
     <Content Include="Image\move-up.png" />
-    <Content Include="Image\t1.png" />
-    <Content Include="Image\t2.png" />
-    <Content Include="Image\t3.png" />
-    <Content Include="Image\t4.png" />
-    <Content Include="Image\t5.png" />
-    <Content Include="Image\t6.jpg" />
-    <Content Include="Image\t7.jpg" />
-    <Content Include="Image\t8.jpg" />
-    <Content Include="Image\t9.jpg" />
+    <Content Include="Image\yellow duck.png" />
     <Content Include="Models\FamilyGoModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>FamilyGoModel.Context.cs</LastGenOutput>
