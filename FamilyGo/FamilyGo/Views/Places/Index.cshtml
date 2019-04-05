@@ -4,14 +4,15 @@
     /**/
 
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Layout = "~/Views/Shared/search_layout.cshtml";
 }
 
 <div class="about-heading">
     <h2>Place you can go</h2>
 </div>
 
-
+<!--
 <div id="leftside">
     <div class="about-heading">
         <h5> Children Age Group</h5>
@@ -31,15 +32,13 @@
     </div>
 
 </div>
-
+-->
 <div style="display:grid">
-
     <div id="map" style="height:425px"></div> <br />
-
     <div>
         <table class="table">
-            <tr>
-                <th>
+            <tr >
+                <th >
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
                 <th>
@@ -48,10 +47,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Facility)
                 </th>
-                <th>
+                <th >
                     @Html.DisplayNameFor(model => model.Lat)
                 </th>
-                <th>
+                <th >
                     @Html.DisplayNameFor(model => model.Lon)
                 </th>
                 <th>
@@ -65,20 +64,20 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
+                <tr class="coordinates">
+                    <td class="name">
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Address)
                     </td>
-                    <td>
+                    <td class="description">
                         @Html.DisplayFor(modelItem => item.Facility)
                     </td>
-                    <td>
+                    <td class="latitude">
                         @Html.DisplayFor(modelItem => item.Lat)
                     </td>
-                    <td>
+                    <td class="longitude">
                         @Html.DisplayFor(modelItem => item.Lon)
                     </td>
                     <td>
@@ -94,37 +93,69 @@
                     </td>
                 </tr>
             }
-
         </table>
-
     </div>
 </div>
-
-
-
 <script>
     var map;
+    var locations = [];
+    var InforObj = [];
+    $(".coordinates").each(function () {
+        var name = $(".name", this).text().trim();
+        var longitude = $(".longitude", this).text().trim();
+        var latitude = $(".latitude", this).text().trim();
+        var description = $(".description", this).text().trim();
+        // Create a point data structure to hold the values.
+        var point = {
+            "name": name,
+            "latitude": parseFloat(latitude),
+            "longitude": parseFloat(longitude),
+            "description": description
+        };
+        // Push them all into an array.
+        locations.push(point);
+    });
     function initMap() {
+        var myLatLng = { lat: -25.363, lng: 131.044 };
         map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: -34.397, lng: 150.644 },
+            center: { lat: -37.835163, lng: 144.979678 },
             zoom: 8
         });
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+        });
+        addMarkerInfo();
+    }
+    function addMarkerInfo() {
+        for (var i = 0; i < locations.length; i++) {
+            var contentString = '<div id="content">' + '<h4>' + locations[i].name + '</h4></br>' + locations[i].description +
+                '</div>';
+            const marker = new google.maps.Marker({
+                position: { lat: locations[i].latitude, lng: locations[i].longitude },
+                map: map
+            });
+
+            const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+                maxWidth: 200
+            });
+            marker.addListener('click', function () {
+                closeOtherInfo();
+                infowindow.open(marker.get('map'), marker);
+                InforObj[0] = infowindow;
+            });
+        }
+    }
+    function closeOtherInfo() {
+        if (InforObj.length > 0) {
+            InforObj[0].set("marker", null);
+            InforObj[0].close();
+            InforObj.length = 0;
+        }
     }
 </script>
-<script>
-    $(document).ready(function () {
-        $('input[type=radio][name=age]').change(function () {
-            if (this.value == '0') {
-                alert("All!");
-            }
-            else if (this.value == '1') {
-                alert("1!");
-            }
-            else {
-                alert("2!");
-            };
-        });
-    });
-</script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA&callback=initMap" async defer></script>
 
