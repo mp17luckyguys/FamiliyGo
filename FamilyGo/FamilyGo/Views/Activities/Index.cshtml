@@ -18,33 +18,41 @@
 <body>
     <section>
         <div class="about-heading">
-            <h2 >
+            <h2>
                 Activities for Children
             </h2>
         </div>
     </section>
+    <div class="container about-heading">
+        <h5>
+            <a href="@Url.Action("Index","Home")">Home >> &nbsp;</a>
+            <a href="@Url.Action("Index","Activities")">Activities for All age group </a>
+        </h5>
+    </div>
     <section>
         <div class="about-heading container">
+
+            <ul id="myTab" class="nav nav-tabs" role="tabpanel">
+                <li role="presentation" class="active"><a href="@Url.Action("Index","Activities")" role="tab">All</a></li>
+                <li role="presentation"><a href="@Url.Action("Information","Activities")" role="tab">3-6 years old</a> </li>
+                <li role="presentation"><a href="@Url.Action("InformationTwo","Activities")" role="tab">6-12 years old</a></li>
+            </ul>
+
             <!--
-              <ul id ="myTab" class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="current"><a href="#dfghj" role="tab" data-toggle="tab">All</a></li>
-                <li role="presentation"><a href="~/Activities/Information" role="tab" data-toggle="tab">3-6 years old</a> </li>
-                <li role="presentation"><a href="#six" role="tab" data-toggle="tab">6-12 years old</a></li>
-            </ul>  
-            -->
-            
-            
-               <h5>
-                <input id="Checkbox1" type="checkbox" value="three" /> 3-6 years old 
+            <h5>
+                <input id="Checkbox1" type="checkbox" value="three" /> 3-6 years old
                     &nbsp;&nbsp;&nbsp;
                 <input id="Checkbox2" type="checkbox" value="six" /> 6-12 years old
-            </h5> 
-                      
+            </h5>
+            -->
         </div>
     </section>
+
+
+
     <section>
         <div class="about-heading container">
-            <h4>Activities for 3-6 years old:</h4>
+            <h4>Activities for all age group:</h4>
         </div>
         <div class="gallery">
             <div class="container">
@@ -76,7 +84,7 @@
                             </div>
                         </div>
                     }
-                </div>        
+                </div>
             </div>
         </div>
     </section>

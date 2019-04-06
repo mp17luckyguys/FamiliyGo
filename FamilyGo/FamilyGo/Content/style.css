@@ -3974,7 +3974,7 @@ h3 {
 /*-- //team --*/
 /*-- icons --*/
 .about-heading {
-    padding: 2em 0 0 0;
+    padding: 1em 0 0 0;
 }
 
     .about-heading h2 {
@@ -4004,6 +4004,14 @@ h3 {
         font-size: 1em;
         margin: 0;
         text-transform:uppercase;
+    }
+    .about-heading a {
+        color:black;
+        font-style:normal;
+    
+    }
+    .about-heading ul {
+        font-family:'Comic Sans MS';
     }
 
 .codes a {
