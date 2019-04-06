@@ -20,6 +20,27 @@ namespace FamilyGo.Controllers
             return View(db.Activities.ToList());
         }
 
+        public ActionResult Information()
+        {
+            var age = from a in db.Activities
+                      select a;
+            if (!String.IsNullOrEmpty("1")) {
+                age = age.Where(a => a.Description.Contains("1"));
+            }
+            return View(age.ToList());
+        }
+
+        public ActionResult InformationTwo()
+        {
+            var age = from a in db.Activities
+                      select a;
+            if (!String.IsNullOrEmpty("2"))
+            {
+                age = age.Where(a => a.Description.Contains("2"));
+            }
+            return View(age.ToList());
+        }
+
         // GET: Activities/Details/5
         public ActionResult Details(int? id)
         {
@@ -41,10 +62,7 @@ namespace FamilyGo.Controllers
             return View();
         }
 
-        public ActionResult Information()
-        {
-            return View();
-        }
+        
 
         // POST: Activities/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
