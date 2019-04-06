@@ -65,16 +65,26 @@ namespace FamilyGo.Controllers
             JObject jo = (JObject)JsonConvert.DeserializeObject(googleTextSearchReasult);
             if (jo["status"].ToString() != "ZERO_RESULTS")
             {
-
+                string placeId = jo["results"][0]["place_id"].ToString(); 
                 if (jo["results"][0]["photos"] != null)
                 {
-                    string placeId;
+                    
                     string joPhotoRef = jo["results"][0]["photos"][0]["photo_reference"].ToString();
-                    placeId = jo["results"][0]["place_id"].ToString();
+
                     //Image googlePhoto = HttpUtils.GetImage("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + joPhotoRef + "& sensor=false&key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA");
                     string imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + joPhotoRef + "& sensor=false&key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA";
                     ViewBag.imUrl = imageUrl;
+
                 }
+                string detailUrl = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeId + "& fields=name,rating,formatted_phone_number,reviews,website,opening_hours&key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA";
+                string googleDetailReasult = HttpUtils.Get(detailUrl);
+                JObject joDetail = (JObject)JsonConvert.DeserializeObject(googleDetailReasult);
+                if (joDetail["result"]["rating"] != null)
+                { ViewBag.rating = joDetail["result"]["rating"]; }
+                else { ViewBag.rating = "No rating avaliable."; }
+                if (joDetail["result"]["formatted_phone_number"] != null) { ViewBag.phoneNumber = joDetail["result"]["formatted_phone_number"]; } else { ViewBag.phoneNumber = "No phone number avaliable."; }
+                if (joDetail["result"]["website"] != null) { ViewBag.website = joDetail["result"]["website"]; } else { ViewBag.website = "No website avaliable."; }
+                if (joDetail["result"]["opening_hours"] != null) { if (joDetail["result"]["opening_hours"]["open_now"].ToString() == "true") { ViewBag.openingNow = "Opening"; } else { ViewBag.openingNow = "Closed"; } } else { ViewBag.openingNow = "No opening hours avaliable."; }
             }
             else { ViewBag.imUrl = "../../Image/noPhoto.png"; }
 
