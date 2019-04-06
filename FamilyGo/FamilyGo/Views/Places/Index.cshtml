@@ -77,34 +77,33 @@
 
             @foreach (var item in Model)
             {
-                <tr class="coordinates">
-                    <td class="name">
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td class="description">
-                        @Html.DisplayFor(modelItem => item.Facility)
-                    </td>
-                    <td class="latitude">
-                        @Html.DisplayFor(modelItem => item.Lat)
-                    </td>
-                    <td class="longitude">
-                        @Html.DisplayFor(modelItem => item.Lon)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Suburb)
-                    </td>
-                    <td class="ActivityName">
-                        @Html.DisplayFor(modelItem => item.Activity.Name)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.PlaceId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.PlaceId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.PlaceId })
-                    </td>
-                </tr>
+            <tr class="coordinates">
+                <td class="name">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Suburb)
+                </td>
+                <td class="description">
+                    @Html.DisplayFor(modelItem => item.Facility)
+                </td>
+                <td class="latitude" style="display:none">
+                    @Html.DisplayFor(modelItem => item.Lat)
+                </td>
+                <td class="longitude" style="display:none">
+                    @Html.DisplayFor(modelItem => item.Lon)
+                </td>
+
+                <td class="ActivityName" style="display:none">
+                    @Html.DisplayFor(modelItem => item.Activity.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("More Details", "Details", new { id = item.PlaceId })
+                </td>
+            </tr>
             }
         </table>
     </div>
