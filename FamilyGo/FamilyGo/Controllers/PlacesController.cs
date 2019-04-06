@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FamilyGo.Models;
+using FamilyGo.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace FamilyGo.Controllers
 {
@@ -56,6 +61,23 @@ namespace FamilyGo.Controllers
             {
                 return HttpNotFound();
             }
+            string googleTextSearchReasult = HttpUtils.Get("https://maps.googleapis.com/maps/api/place/textsearch/json?query="+ place.Name + "&key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA");
+            JObject jo = (JObject)JsonConvert.DeserializeObject(googleTextSearchReasult);
+            if (jo["status"].ToString() != "ZERO_RESULTS")
+            {
+
+                if (jo["results"][0]["photos"] != null)
+                {
+                    string placeId;
+                    string joPhotoRef = jo["results"][0]["photos"][0]["photo_reference"].ToString();
+                    placeId = jo["results"][0]["place_id"].ToString();
+                    //Image googlePhoto = HttpUtils.GetImage("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + joPhotoRef + "& sensor=false&key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA");
+                    string imageUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + joPhotoRef + "& sensor=false&key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA";
+                    ViewBag.imUrl = imageUrl;
+                }
+            }
+            else { ViewBag.imUrl = "../../Image/noPhoto.png"; }
+
             return View(place);
         }
 

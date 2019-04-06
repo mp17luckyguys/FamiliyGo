@@ -193,6 +193,7 @@
     <Compile Include="Utils\ExcelToDBOtherActivity.cs" />
     <Compile Include="Utils\ExcelToDBParks.cs" />
     <Compile Include="Utils\ExcelToDBSportPlace.cs" />
+    <Compile Include="Utils\HttpUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\FamilyGoDB.mdf" />
@@ -369,6 +370,7 @@
     <Content Include="Content\popuo-box.css" />
     <Content Include="Content\simplelightbox.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Controllers\noPhoto.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -390,6 +392,7 @@
     <Content Include="Image\img8.jpg" />
     <Content Include="Image\img9.jpg" />
     <Content Include="Image\Kaws-Sesame-Street-Uniqlo-Cookie-Monster-Plush-Toy-Blue.jpg" />
+    <Content Include="Image\noPhoto.png" />
     <Content Include="Image\pineapple.jpg" />
     <Content Include="Image\move-up.png" />
     <Content Include="Image\yellow duck.png" />
