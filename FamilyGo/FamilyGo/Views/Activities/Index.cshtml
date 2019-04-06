@@ -26,7 +26,7 @@
     <div class="container about-heading">
         <h5>
             <a href="@Url.Action("Index","Home")">Home >> &nbsp;</a>
-            <a href="@Url.Action("Index","Activities")">Activities for All age group </a>
+            <a href="@Url.Action("Index","Activities")">Activities</a>
         </h5>
     </div>
     <section>
@@ -61,7 +61,7 @@
                         <div class="grid">
                             <figure class="effect-roxy">
                                 <a class="image-link" href="@Url.Action("Index", "Games")">
-                                    <img src="~/Image/Kaws-Sesame-Street-Uniqlo-Cookie-Monster-Plush-Toy-Blue.jpg" alt="" />
+                                    <img src="~/Image/halftone-yellow.png" alt="" />
                                     <figcaption>
                                         <h2>Games</h2>
                                     </figcaption>
@@ -75,7 +75,7 @@
                             <div class="grid">
                                 <figure class="effect-roxy">
                                     <a class="image-link" href="@Url.Action("Index", "Places",new {i= item.ActivityId })">
-                                        <img src="~/Image/Kaws-Sesame-Street-Uniqlo-Cookie-Monster-Plush-Toy-Blue.jpg" alt="" />
+                                        <img src="~/Image/halftone-yellow.png" alt="" />
                                         <figcaption>
                                             <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
                                         </figcaption>

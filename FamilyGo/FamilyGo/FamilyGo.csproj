@@ -377,8 +377,10 @@
     <Content Include="Image\1.jpg" />
     <Content Include="Image\11.jpg" />
     <Content Include="Image\2.jpg" />
+    <Content Include="Image\345.png" />
     <Content Include="Image\childneglect.jpg" />
     <Content Include="Image\Green flower.png" />
+    <Content Include="Image\halftone-yellow.png" />
     <Content Include="Image\img1.jpg" />
     <Content Include="Image\img10.jpg" />
     <Content Include="Image\img2.jpg" />
@@ -392,6 +394,7 @@
     <Content Include="Image\Kaws-Sesame-Street-Uniqlo-Cookie-Monster-Plush-Toy-Blue.jpg" />
     <Content Include="Image\pineapple.jpg" />
     <Content Include="Image\move-up.png" />
+    <Content Include="Image\white.jpg" />
     <Content Include="Image\yellow duck.png" />
     <Content Include="Models\FamilyGoModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -4533,14 +4533,15 @@ h2.typoh2 {
 /*---------------*/
 
 figure.effect-roxy {
-    background: -webkit-linear-gradient(45deg, #ff89e9 0%, #05abe0 100%);
+    background: -webkit-linear-gradient(45deg, #ffd700 0%, #66cdaa 100%);
     position:center;
     border-radius:35px;
+    height:200px;
 }
 
     figure.effect-roxy img {
         max-width: none;
-        width: calc(100% + 10px);
+        width: calc(100% + 20px);
         -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
         transition: opacity 0.35s, transform 0.35s;
         -webkit-transform: translate3d(-10px,0,0);
@@ -4556,9 +4557,9 @@ figure.effect-roxy {
     }
 
     figure.effect-roxy figcaption {
-       position:center;
        text-align: center;
-       padding-top:5em;
+       padding-top:90px;
+       padding-left:55px;
     }
 
     figure.effect-roxy h2 {
@@ -4580,14 +4581,14 @@ figure.effect-roxy {
     }
 
     figure.effect-roxy:hover img {
-        opacity: 0.7;
+        opacity: 0.5;
         -webkit-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
     }
 
     figure.effect-roxy:hover figcaption::before,
     figure.effect-roxy:hover p {
-        opacity: 1;
+        opacity: 0.7;
         -webkit-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
     }
