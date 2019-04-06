@@ -370,7 +370,6 @@
     <Content Include="Content\popuo-box.css" />
     <Content Include="Content\simplelightbox.css" />
     <Content Include="Content\style.css" />
-    <Content Include="Controllers\noPhoto.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
