@@ -17,6 +17,7 @@ namespace FamilyGo.Controllers
         // GET: Activities
         public ActionResult Index()
         {
+            ViewBag.activities = db.Activities.ToList();
             return View(db.Activities.ToList());
         }
 
