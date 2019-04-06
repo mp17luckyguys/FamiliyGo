@@ -77,33 +77,34 @@
 
             @foreach (var item in Model)
             {
-            <tr class="coordinates">
-                <td class="name">
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Suburb)
-                </td>
-                <td class="description">
-                    @Html.DisplayFor(modelItem => item.Facility)
-                </td>
-                <td class="latitude" style="display:none">
-                    @Html.DisplayFor(modelItem => item.Lat)
-                </td>
-                <td class="longitude" style="display:none">
-                    @Html.DisplayFor(modelItem => item.Lon)
-                </td>
-
-                <td style="display:none">
-                    @Html.DisplayFor(modelItem => item.Activity.Name)
-                </td>
-                <td style="color:black">
-                    @Html.ActionLink("More Details", "Details", new { id = item.PlaceId })
-                </td>
-            </tr>
+                <tr class="coordinates">
+                    <td class="name">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td class="description">
+                        @Html.DisplayFor(modelItem => item.Facility)
+                    </td>
+                    <td class="latitude">
+                        @Html.DisplayFor(modelItem => item.Lat)
+                    </td>
+                    <td class="longitude">
+                        @Html.DisplayFor(modelItem => item.Lon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Suburb)
+                    </td>
+                    <td class="ActivityName">
+                        @Html.DisplayFor(modelItem => item.Activity.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PlaceId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PlaceId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PlaceId })
+                    </td>
+                </tr>
             }
         </table>
     </div>
@@ -112,27 +113,47 @@
     var map;
     var locations = [];
     var InforObj = [];
-    $(".coordinates").each(function () {
-        var name = $(".name", this).text().trim();
-        var longitude = $(".longitude", this).text().trim();
-        var latitude = $(".latitude", this).text().trim();
-        var description = $(".description", this).text().trim();
-        // Create a point data structure to hold the values.
-        var point = {
-            "name": name,
-            "latitude": parseFloat(latitude),
-            "longitude": parseFloat(longitude),
-            "description": description
-        };
-        // Push them all into an array.
-        locations.push(point);
-    });
+    var dis = 0.1;
     function initMap() {
-        var myLatLng = { lat: -25.363, lng: 131.044 };
         map = new google.maps.Map(document.getElementById('map'), {
             center: { lat: -37.835163, lng: 144.979678 },
             zoom: 8
         });
+    }
+    navigator.geolocation.getCurrentPosition(c)
+    function c(pos) {
+        var clat = parseFloat(pos.coords.latitude);
+        var clon = parseFloat(pos.coords.longitude);
+        $(".coordinates").each(function () {
+            var name = $(".name", this).text().trim();
+            var longitude = $(".longitude", this).text().trim();
+            var latitude = $(".latitude", this).text().trim();
+            var description = $(".description", this).text().trim();
+            var activityName = $(".ActivityName", this).text().trim();
+            // Create a point data structure to hold the values.
+            var point = {
+                "name": name,
+                "latitude": parseFloat(latitude),
+                "longitude": parseFloat(longitude),
+                "description": description
+            };
+            if (activityName == "Dancing" || activityName == "Animal" || activityName == "Adventure Park and Theme Park" || activityName == "Others" || activityName == "Garden") { locations.push(point); }
+            else {
+                if (point.latitude < (clat + dis) && point.latitude > (clat - dis) && point.longitude < (clon + dis) && point.longitude > (clon - dis)
+                ) { locations.push(point); } }
+
+            // Push them all into an array.
+            //alert(locations);
+        });
+        var image = {
+            url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            // This marker is 20 pixels wide by 32 pixels high.
+            size: new google.maps.Size(100, 50),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 32)
+        };
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
