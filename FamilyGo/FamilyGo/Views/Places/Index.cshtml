@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<FamilyGo.Models.Place>
 @Scripts.Render("~/bundles/jquery")
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA&callback=initMap" async defer></script>
 @{
     /**/
 
@@ -95,7 +96,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Suburb)
                     </td>
-                    <td>
+                    <td class="ActivityName">
                         @Html.DisplayFor(modelItem => item.Activity.Name)
                     </td>
                     <td>
@@ -112,34 +113,59 @@
     var map;
     var locations = [];
     var InforObj = [];
-    $(".coordinates").each(function () {
-        var name = $(".name", this).text().trim();
-        var longitude = $(".longitude", this).text().trim();
-        var latitude = $(".latitude", this).text().trim();
-        var description = $(".description", this).text().trim();
-        // Create a point data structure to hold the values.
-        var point = {
-            "name": name,
-            "latitude": parseFloat(latitude),
-            "longitude": parseFloat(longitude),
-            "description": description
-        };
-        // Push them all into an array.
-        locations.push(point);
-    });
+    var dis = 0.1;
     function initMap() {
-        var myLatLng = { lat: -25.363, lng: 131.044 };
         map = new google.maps.Map(document.getElementById('map'), {
             center: { lat: -37.835163, lng: 144.979678 },
             zoom: 8
         });
+    }
+    navigator.geolocation.getCurrentPosition(c)
+    function c(pos) {
+        var clat = parseFloat(pos.coords.latitude);
+        var clon = parseFloat(pos.coords.longitude);
+        $(".coordinates").each(function () {
+            var name = $(".name", this).text().trim();
+            var longitude = $(".longitude", this).text().trim();
+            var latitude = $(".latitude", this).text().trim();
+            var description = $(".description", this).text().trim();
+            var activityName = $(".ActivityName", this).text().trim();
+            // Create a point data structure to hold the values.
+            var point = {
+                "name": name,
+                "latitude": parseFloat(latitude),
+                "longitude": parseFloat(longitude),
+                "description": description
+            };
+            if (activityName == "Dancing" || activityName == "Animal" || activityName == "Adventure Park and Theme Park" || activityName == "Others" || activityName == "Garden") { locations.push(point); }
+            else {
+                if (point.latitude < (clat + dis) && point.latitude > (clat - dis) && point.longitude < (clon + dis) && point.longitude > (clon - dis)
+                ) { locations.push(point); } }
+
+            // Push them all into an array.
+            //alert(locations);
+        });
+        var image = {
+            url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            // This marker is 20 pixels wide by 32 pixels high.
+            size: new google.maps.Size(100, 50),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 32)
+        };
         var marker = new google.maps.Marker({
-            position: myLatLng,
+            position: {lat: clat, lng: clon},
             map: map,
-            title: 'Hello World!'
+            title: 'Your current location',
+            icon: image
         });
         addMarkerInfo();
     }
+    
+
+    
+    
     function addMarkerInfo() {
         for (var i = 0; i < locations.length; i++) {
             var contentString = '<div id="content">' + '<h4>' + locations[i].name + '</h4></br>' + locations[i].description +
@@ -167,9 +193,18 @@
             InforObj.length = 0;
         }
     }
+
+
+
+    navigator.geolocation.getCurrentPosition(c)
+
+
+
+
+
+
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA&callback=initMap" async defer></script>
 
 
 
