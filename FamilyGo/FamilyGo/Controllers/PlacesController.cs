@@ -97,6 +97,7 @@ namespace FamilyGo.Controllers
                 if (joDetail["result"]["rating"] != null)
                 { ViewBag.rating = joDetail["result"]["rating"]; }
                 else { ViewBag.rating = "No rating avaliable."; }
+                if (joDetail["result"]["formatted_address"] != null) { ViewBag.address = joDetail["result"]["formatted_address"]; } else { ViewBag.address = "No address avaliable."; }
                 if (joDetail["result"]["formatted_phone_number"] != null) { ViewBag.phoneNumber = joDetail["result"]["formatted_phone_number"]; } else { ViewBag.phoneNumber = "No phone number avaliable."; }
                 if (joDetail["result"]["website"] != null) { ViewBag.website = joDetail["result"]["website"]; } else { ViewBag.website = "No website avaliable."; }
                 if (joDetail["result"]["opening_hours"] != null) { if (joDetail["result"]["opening_hours"]["open_now"].ToString() == "true") { ViewBag.openingNow = "Opening"; } else { ViewBag.openingNow = "Closed"; } } else { ViewBag.openingNow = "Unknown"; }
