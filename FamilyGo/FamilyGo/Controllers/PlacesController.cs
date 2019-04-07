@@ -35,32 +35,17 @@ namespace FamilyGo.Controllers
                    return View(places.ToList());
                }*/
 
-        public ActionResult Index(string i)
+        public ActionResult Index(int? i)
         {
             var places = db.Places.Include(p => p.Activity);
             List<Place> placesList = places.ToList();
             List<Place> newPlacesList = new List<Place>();
             foreach (Place place in placesList)
             {
-                if (string.Equals(place.Activity.Name,i))
+                if (place.ActivityActivityId == i)
                     newPlacesList.Add(place);
             }
-/*            List < Activity > acti= db.Activities.ToList();
-            Dictionary<string, string> DATA1 = new Dictionary<string, string>();
-            Dictionary<string, string> DATA2 = new Dictionary<string, string>();
-            Dictionary<string, string> DATA3 = new Dictionary<string, string>();
-            foreach (Activity a in acti)
-            {
-                DATA1.Add(a.Name, a.Name);
-                if (a.Description == "12" || a.Description == "1") { DATA2.Add(a.Name, a.Name); }
-                if (a.Description == "12" || a.Description == "2") { DATA3.Add(a.Name, a.Name); }
-            }
-            DATA1.Add("X", "X");
-            DATA2.Add("X", "X");
-            DATA3.Add("X", "X");
-            ViewBag.Data1 = DATA1;
-            ViewBag.Data2 = DATA2;
-            ViewBag.Data3 = DATA3;*/
+
             return View(newPlacesList);
         }
 

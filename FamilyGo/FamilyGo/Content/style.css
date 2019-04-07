@@ -6,7 +6,6 @@
 
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
     background: #fff;
 }
 
@@ -15,7 +14,6 @@ body {
         -webkit-transition: 0.5s all;
         -moz-transition: 0.5s all;
         -o-transition: 0.5s all;
-        -ms-transition: 0.5s all;
         text-decoration: none;
         outline: none;
     }
@@ -24,7 +22,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family:'Comic Sans MS';
 }
 
 p {
@@ -50,7 +48,12 @@ body a:focus {
     border-color:#fff;
     border-radius:30px;
     margin:10px;
-    background-color:#ffd700;
+    background-color:#fff68f;
+}
+
+.mapanddata {
+    padding-left:10px;
+    padding-top:0.6em;
 }
 
 /*-- top-nav--*/
@@ -340,7 +343,7 @@ a.agilebtn {
 /*-- //banner --*/
 /*-- about --*/
 .about, .news, .services, .testimonial, .about, .team, .contact, .gallery, .codes {
-    padding: 5em 0;
+    padding: 1.5em 0;
 }
 
     .about h4 {
@@ -708,9 +711,10 @@ h3.agileits-title1 {
     }
 /*-- mission --*/
 h3.w3ltitle {
-    font-size: 2.5em;
-    color: #f08080;
-    text-transform: capitalize;
+    font-size: 2em;
+    color: #ffd700;
+    text-transform: uppercase;
+    text-align:center;
 }
 
 .about p {
@@ -737,12 +741,12 @@ h3.w3ltitle {
 .pince-left {
     float: left;
     width: 17%;
-    border: 1px solid #00bcd4;
+    border: 2px solid #66cdaa;
     text-align: center;
-    padding: 0.8em 1em;
+    padding: 0.5em 0.5em;
     -webkit-border-radius: 17px 0;
     -moz-border-radius: 17px 0;
-    border-radius: 17px 0;
+    border-radius: 17px 17px;
 }
 
 .pince-right {
@@ -751,14 +755,14 @@ h3.w3ltitle {
 }
 
 .w3ls-pince h4 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     color: #000;
     margin-bottom: 0.4em;
 }
 
 .w3ls-pince h5 {
     font-size: 1.8em;
-    color: #00bcd4;
+    color: #66cdaa;
     transition: .5s all;
     -webkit-transition: .5s all;
     -moz-transition: .5s all;
@@ -771,7 +775,7 @@ h3.w3ltitle {
 }
 
 .w3ls-pince:hover .pince-left {
-    background-color: #00bcd4;
+    background-color: #66cdaa;
 }
 
 .w3ls-pince:hover h5 {
@@ -1891,7 +1895,7 @@ h2.typoh2 {
     }
 
     .about, .news, .services, .testimonial, .about, .team, .contact, .gallery, .codes {
-        padding: 4em 0;
+        padding: 1em 0;
     }
 
     .services-grid {
@@ -1911,7 +1915,7 @@ h2.typoh2 {
     }
 
     .pince-left {
-        width: 21%;
+        width: 17%;
     }
 
     .about-slid h5 {
@@ -2014,8 +2018,13 @@ h2.typoh2 {
     }
 
     .about-wthreegrids img {
-        width: 50%;
+        width:50%;
+        margin:25%;
+        border:solid;
+        border-width:20px;
+        border-radius:25px;
     }
+    
 
     .about-wthreegrids:nth-child(2) {
         padding: 0 1em;
@@ -2354,7 +2363,7 @@ h2.typoh2 {
     }
 
     .about, .news, .services, .testimonial, .about, .team, .contact, .gallery, .codes {
-        padding: 3.5em 0;
+        padding: 1em 0;
     }
 
     h3.agileits-title {
@@ -2374,7 +2383,7 @@ h2.typoh2 {
     }
 
     h3.w3ltitle {
-        font-size: 2em;
+        font-size: 1.2em;
     }
 
     .team-w3ls-row {
@@ -2451,7 +2460,7 @@ h2.typoh2 {
     }
 
     .about, .news, .services, .testimonial, .about, .team, .contact, .gallery, .codes {
-        padding: 3em 0;
+        padding: 1em 0;
     }
 
     h3.agileits-title {
@@ -2760,7 +2769,7 @@ h2.typoh2 {
     }
 
     .about, .news, .services, .testimonial, .about, .team, .contact, .gallery, .codes {
-        padding: 2em 0;
+        padding: 1em 0;
     }
 
     h3.agileits-title {
@@ -4012,6 +4021,15 @@ h3 {
     }
     .about-heading ul {
         font-family:'Comic Sans MS';
+        font-size:1.2em;
+    }
+    .about-heading p {
+        font-family:'Comic Sans MS';
+        font-size:2.5em;
+        color:black;
+        text-transform:capitalize;
+        text-align:center;
+    
     }
 
 .codes a {
@@ -4581,7 +4599,7 @@ figure.effect-roxy {
     }
 
     figure.effect-roxy:hover img {
-        opacity: 0.5;
+        opacity: 0.4;
         -webkit-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
     }
