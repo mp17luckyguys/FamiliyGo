@@ -15,9 +15,9 @@
 @ViewBag.weekday
 @foreach (var item in ViewBag.review)
 {
-    @item["author_name"]<br />
-    @item["relative_time_description"]<br />
-    @item["text"]<br />
+    @item.author_name<br/>
+    @item.relative_time_description<br />
+    @item.text<br />
     <br/>
 }
 

@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<FamilyGo.Models.Place>
 @Scripts.Render("~/bundles/jquery")
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA&callback=initMap" async defer></script>
+
 @{
     /**/
 
@@ -77,7 +77,74 @@
 
             @foreach (var item in Model)
             {
-                <tr class="coordinates">
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Facility)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Suburb)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Activity.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PlaceId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PlaceId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PlaceId })
+                    </td>
+                </tr>
+            }
+        </table>
+
+
+
+
+
+
+
+        <table style="display:none">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Facility)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Lat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Lon)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Suburb)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Activity.Name)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr class="coordinates" style="display:none;">
                     <td class="name">
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
@@ -113,14 +180,16 @@
     var map;
     var locations = [];
     var InforObj = [];
-    var dis = 0.1;
+    var dis = 0.05;
+
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: { lat: -37.835163, lng: 144.979678 },
             zoom: 8
         });
+        navigator.geolocation.getCurrentPosition(c);
     }
-    navigator.geolocation.getCurrentPosition(c)
+
     function c(pos) {
         var clat = parseFloat(pos.coords.latitude);
         var clon = parseFloat(pos.coords.longitude);
@@ -131,6 +200,7 @@
             var description = $(".description", this).text().trim();
             var activityName = $(".ActivityName", this).text().trim();
             // Create a point data structure to hold the values.
+            console.log(name);
             var point = {
                 "name": name,
                 "latitude": parseFloat(latitude),
@@ -139,9 +209,9 @@
             };
             if (activityName == "Dancing" || activityName == "Animal" || activityName == "Adventure Park and Theme Park" || activityName == "Others" || activityName == "Garden") { locations.push(point); }
             else {
-                if (point.latitude < (clat + dis) && point.latitude > (clat - dis) && point.longitude < (clon + dis) && point.longitude > (clon - dis)
-                ) { locations.push(point); } }
-
+                if (point.latitude < (clat + dis)&& point.latitude > (clat - dis)&& point.longitude < (clon + dis) && point.longitude > (clon - dis)){ locations.push(point); }
+            }
+            //locations.push(point);
             // Push them all into an array.
             //alert(locations);
         });
@@ -155,17 +225,17 @@
             anchor: new google.maps.Point(0, 32)
         };
         var marker = new google.maps.Marker({
-            position: {lat: clat, lng: clon},
+            position: { lat: clat, lng: clon },
             map: map,
             title: 'Your current location',
             icon: image
         });
         addMarkerInfo();
     }
-    
 
-    
-    
+
+
+
     function addMarkerInfo() {
         for (var i = 0; i < locations.length; i++) {
             var contentString = '<div id="content">' + '<h4>' + locations[i].name + '</h4></br>' + locations[i].description +
@@ -185,6 +255,7 @@
                 InforObj[0] = infowindow;
             });
         }
+        locations = [];
     }
     function closeOtherInfo() {
         if (InforObj.length > 0) {
@@ -196,15 +267,13 @@
 
 
 
-    navigator.geolocation.getCurrentPosition(c)
-
-
 
 
 
 
 </script>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJeTABC7AwjSI-x7dm2cVlbHvA3yN65HA&callback=initMap" async defer></script>
 
 
 
