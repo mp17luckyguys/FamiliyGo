@@ -52,7 +52,7 @@
 
     <section>
         <div class="about-heading container">
-            <h4>Activities for all age group:</h4>
+            <h4>Activities for All Age Group:</h4>
         </div>
         <div class="gallery">
             <div class="container">
@@ -74,7 +74,7 @@
                         <div class="col-md-4 gallery-grid">
                             <div class="grid">
                                 <figure class="effect-roxy">
-                                    <a class="image-link" href="@Url.Action("Index", "Places",new {i= item.Name })">
+                                    <a class="image-link" href="@Url.Action("Index", "Places",new {i= item.ActivityId })">
                                         <img src="~/Image/halftone-yellow.png" alt="" />
                                         <figcaption>
                                             <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
