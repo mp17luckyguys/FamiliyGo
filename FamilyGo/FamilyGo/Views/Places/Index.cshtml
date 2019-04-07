@@ -18,7 +18,7 @@
     <h5>
         <a href="@Url.Action("Index","Home")">Home >> &nbsp;</a>
         <a href="@Url.Action("Index","Activities")">Activities >> </a>
-        <a href="@Url.Action("Index","Places")">Places you can go</a>
+        <a href="@Url.Action("Index","Places",new { i = ViewBag.activityName})">Places you can go</a>
     </h5>
 </div>
 
@@ -43,11 +43,11 @@
 
 </div>
 -->
-<div style="display:grid">
+<div class="mapanddata"s style="display:grid">
     <div id="map" style="height:425px"></div> <br />
 
     <div>
-        <table class="table">
+        <table class="table tableforgame" border="1">
             <thead>
                 <tr>
                     <th>
@@ -57,54 +57,55 @@
                         @Html.DisplayNameFor(model => model.Address)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Facility)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Lat)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Lon)
-                    </th>
-                    <th>
                         @Html.DisplayNameFor(model => model.Suburb)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.Facility)
+                    </th>
+                    <th style="display:none">
+                        @Html.DisplayNameFor(model => model.Lat)
+                    </th>
+                    <th style="display:none">
+                        @Html.DisplayNameFor(model => model.Lon)
+                    </th>
+
+                    <th style="display:none">
                         @Html.DisplayNameFor(model => model.Activity.Name)
                     </th>
-                    <th></th>
+                    <th> WANT MORE?</th>
                 </tr>
             </thead>
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Facility)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Lat)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Lon)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Suburb)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Activity.Name)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.PlaceId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.PlaceId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.PlaceId })
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Suburb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Facility)
+                </td>
+                <td style="display:none">
+                    @Html.DisplayFor(modelItem => item.Lat)
+                </td>
+                <td style="display:none">
+                    @Html.DisplayFor(modelItem => item.Lon)
+                </td>
+
+                <td style="display:none">
+                    @Html.DisplayFor(modelItem => item.Activity.Name)
+                </td>
+                <td>
+                    
+                    @Html.ActionLink("More Details", "Details", new { id = item.PlaceId })
+                </td>
+            </tr>
             }
         </table>
 
