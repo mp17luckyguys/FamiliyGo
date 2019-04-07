@@ -16,7 +16,7 @@ namespace FamilyGo.Utils
             public void Page_Load()
             {
                 FileSvr fileSvr = new FileSvr();
-                System.Data.DataTable dt = fileSvr.GetExcelDatatable("E:\\MIT\\5120\\Project\\data\\ActivityId.xlsx", "Sheet1");
+                System.Data.DataTable dt = fileSvr.GetExcelDatatable("C:\\Users\\jcui0003\\Desktop\\data\\data\\ActivityId.xlsx", "Sheet1");
                 fileSvr.InsetData(dt);
             }
         }
