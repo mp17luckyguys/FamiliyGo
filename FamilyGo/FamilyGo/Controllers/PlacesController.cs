@@ -100,8 +100,8 @@ namespace FamilyGo.Controllers
                 if (joDetail["result"]["formatted_phone_number"] != null) { ViewBag.phoneNumber = joDetail["result"]["formatted_phone_number"]; } else { ViewBag.phoneNumber = "No phone number avaliable."; }
                 if (joDetail["result"]["website"] != null) { ViewBag.website = joDetail["result"]["website"]; } else { ViewBag.website = "No website avaliable."; }
                 if (joDetail["result"]["opening_hours"] != null) { if (joDetail["result"]["opening_hours"]["open_now"].ToString() == "true") { ViewBag.openingNow = "Opening"; } else { ViewBag.openingNow = "Closed"; } } else { ViewBag.openingNow = "Unknown"; }
-                if (joDetail["result"]["opening_hours"] != null) { ViewBag.weekday = joDetail["result"]["opening_hours"]["weekday_text"]; } else { ViewBag.weekday = "No opening hours avaliable."; }
-                if (joDetail["result"]["reviews"] != null) { ViewBag.review = joDetail["result"]["reviews"]; } else { ViewBag.weekday = "No review avaliable."; }
+                if (joDetail["result"]["opening_hours"] != null) { ViewBag.weekday = joDetail["result"]["opening_hours"]["weekday_text"]; } else { ViewBag.weekday = "No weekday information avaliable."; }
+                if (joDetail["result"]["reviews"] != null) { ViewBag.review = joDetail["result"]["reviews"]; } else { ViewBag.review = "No review avaliable."; }
             }
             else { ViewBag.imUrl = "../../Image/noPhoto.png"; ViewBag.openingNow = "Unknown"; ViewBag.website = "No website avaliable."; ViewBag.phoneNumber = "No phone number avaliable."; ViewBag.rating = "No rating avaliable."; ViewBag.weekday = "No opening hours avaliable."; ViewBag.review = "No review avaliable."; }
 

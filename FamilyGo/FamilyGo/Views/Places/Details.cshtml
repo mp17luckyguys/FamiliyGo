@@ -13,11 +13,18 @@
 @ViewBag.website
 @ViewBag.openingNow
 @ViewBag.weekday
-@foreach (var item in ViewBag.review)
+@if (ViewBag.review.ToString() != "No review avaliable.")
 {
-    @item.author_name<br/>
-    @item.relative_time_description<br />
-    @item.text<br />
+    foreach (var item in ViewBag.review)
+    {
+        @item.author_name<br />
+        @item.relative_time_description<br />
+        @item.text<br />
+        <br />
+    }
+}
+else {
+    ViewBag.review.ToString();
     <br/>
 }
 
