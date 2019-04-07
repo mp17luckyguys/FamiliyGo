@@ -72,7 +72,7 @@
                     <th style="display:none">
                         @Html.DisplayNameFor(model => model.Activity.Name)
                     </th>
-                    <th> WHAT MORE?</th>
+                    <th> WANT MORE?</th>
                 </tr>
             </thead>
 
@@ -101,9 +101,7 @@
                         @Html.DisplayFor(modelItem => item.Activity.Name)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.PlaceId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.PlaceId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.PlaceId })
+                        @Html.ActionLink("More Details", "Details", new { id = item.PlaceId })
                     </td>
                 </tr>
             }
@@ -168,9 +166,7 @@
                         @Html.DisplayFor(modelItem => item.Activity.Name)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.PlaceId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.PlaceId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.PlaceId })
+                        @Html.ActionLink("More Details", "Details", new { id = item.PlaceId }) 
                     </td>
                 </tr>
             }
