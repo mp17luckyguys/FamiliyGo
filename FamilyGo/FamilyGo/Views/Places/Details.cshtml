@@ -18,10 +18,20 @@
 @ViewBag.weekday
 @foreach (var item in ViewBag.review)
 {
-    @item.author_name<br/>
-    @item.relative_time_description<br />
-    @item.text<br />
-    <br/>
+    if (
+        @item.ToString() != "No review avaliable."
+        )
+    {
+        @item.author_name<br />
+        @item.relative_time_description<br />
+        @item.text<br />
+    }
+    else
+    { 
+        @item < br />
+    }
+
+<br />
 }
 
 
