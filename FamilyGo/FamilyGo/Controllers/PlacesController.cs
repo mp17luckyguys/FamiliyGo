@@ -17,7 +17,7 @@ namespace FamilyGo.Controllers
 {
     public class PlacesController : Controller
     {
-        private FamilyGoModelContainer db = new FamilyGoModelContainer();
+        private FamilyGoiteration1_dbEntities db = new FamilyGoiteration1_dbEntities();
 
         // GET: Places
         /*       public ActionResult Index()

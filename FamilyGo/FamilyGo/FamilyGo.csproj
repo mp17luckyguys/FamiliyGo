@@ -197,10 +197,6 @@
     <Compile Include="Utils\HttpUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\FamilyGoDB.mdf" />
-    <Content Include="App_Data\FamilyGoDB_log.ldf">
-      <DependentUpon>FamilyGoDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -401,24 +397,19 @@
     <Content Include="Image\yellow duck.png" />
     <Content Include="Models\FamilyGoModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FamilyGoModel.Context.cs</LastGenOutput>
       <DependentUpon>FamilyGoModel.edmx</DependentUpon>
+      <LastGenOutput>FamilyGoModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\FamilyGoModel.edmx.sql" />
     <Content Include="Models\FamilyGoModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FamilyGoModel.cs</LastGenOutput>
       <DependentUpon>FamilyGoModel.edmx</DependentUpon>
+      <LastGenOutput>FamilyGoModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Parameters.xml">
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\FamilyGoModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FamilyGoModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\FamilyGoModel.edmx.diagram">
-      <DependentUpon>FamilyGoModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
@@ -427,8 +418,20 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <EntityDeploy Include="Models\FamilyGoModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FamilyGoModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\FamilyGoModel.edmx.diagram">
+      <DependentUpon>FamilyGoModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\FamilyGo - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\FamilyGo - FTP1.pubxml" />
     <None Include="Properties\PublishProfiles\FamilyGo - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\FamilyGo - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\FamilyGoiteration1 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\FamilyGoIteration1 - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\FamilyGoIteration1 - Web Deploy2.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\classie.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
@@ -531,7 +534,9 @@
     <Content Include="Scripts\move-top.js" />
     <Content Include="Scripts\simple-lightbox.min.js" />
     <Content Include="Scripts\SmoothScroll.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -585,6 +590,9 @@
       <Project>{7C6447B2-D889-4306-AD8B-DA5542054C66}</Project>
       <Name>GoogleDirections</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -13,10 +13,10 @@ namespace FamilyGo.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FamilyGoModelContainer : DbContext
+    public partial class FamilyGoiteration1_dbEntities : DbContext
     {
-        public FamilyGoModelContainer()
-            : base("name=FamilyGoModelContainer")
+        public FamilyGoiteration1_dbEntities()
+            : base("name=FamilyGoiteration1_dbEntities")
         {
         }
     
@@ -26,7 +26,7 @@ namespace FamilyGo.Models
         }
     
         public virtual DbSet<Activity> Activities { get; set; }
-        public virtual DbSet<Place> Places { get; set; }
         public virtual DbSet<Game> Games { get; set; }
+        public virtual DbSet<Place> Places { get; set; }
     }
 }
